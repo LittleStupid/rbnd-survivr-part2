@@ -15,4 +15,5 @@ class Tribe
   def tribal_council( immune )
     @members.pop
   end
+
 end
