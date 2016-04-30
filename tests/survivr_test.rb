@@ -23,9 +23,9 @@ class TestSurvivr < Minitest::Test
     @jury = Jury.new
   end
 
-  def test_phase_one
-    assert_equal 8, phase_one
-  end
+  # def test_phase_one
+  #   assert_equal 8, phase_one
+  # end
 
   # def test_phase_two
   #   assert_equal 3, phase_two
