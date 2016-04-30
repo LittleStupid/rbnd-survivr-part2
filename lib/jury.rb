@@ -17,22 +17,16 @@ class Jury
   end
 
   def announce_winner( final_votes )
-    final_votes.keys[0]
+    ( final_votes.max_by{ |k,v| v } )[0]
   end
 
   def cast_votes( final_votes )
-    votes = Hash.new
-
-    votes_num = Array.new( 2 )
-    votes_num[0] = 4
-    votes_num[1] = 3
-    i = 0
-    final_votes.each do |item|
-        votes[item] = votes_num[i]
-        i += 1
-    end
-
     puts @members
+
+    votes = Hash.new
+    #is it a good idea to assign fixed votes number to each one ?
+    votes[ final_votes.first.name ] = 4
+    votes[ final_votes.last.name ] = 3
 
     votes
   end
