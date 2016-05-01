@@ -12,8 +12,20 @@ class Tribe
     @name
   end
 
-  def tribal_council( immune )
-    @members.pop
+  def tribal_council( options={} )
+    #puts options[:immune]
+    #puts "***************s"
+    #puts @members
+    #puts "^^^^^^^^^^^^^^^^"
+    if( @members.include?( options[:immune] ) )
+      @members.pop
+    end
+    #@members.delete( options[:immune] )
+
+
+    #puts "ssssssssss"
+    #puts @members
+    #puts "sfasgsgs"
   end
 
 end
