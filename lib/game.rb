@@ -1,14 +1,14 @@
 class Game
   attr_accessor :tribes, :person_one, :person_two
 
-  def initialize( person_one, person_two )
+  def initialize( tribe_one, tribe_two )
     @tribes = Array.new
 
-    @person_one = person_one
-    @person_two = person_two
+    @tribe_one = tribe_one
+    @tribe_two = tribe_two
 
-    @tribes << person_one
-    @tribes << person_two
+    @tribes << tribe_one
+    @tribes << tribe_two
   end
 
   def add_tribe( tribe )
@@ -16,7 +16,7 @@ class Game
   end
 
   def immunity_challenge
-    Tribe.new
+    @tribes.tribal_council( @tribes.first)
   end
 
   def clear_tribes
@@ -24,11 +24,8 @@ class Game
   end
 
   def merge( name )
-    trb =  Tribe.new( name: name )
-    members = ( @person_one.members + @person_two.members ).uniq
-    trb.members = members
-    @tribes << trb
-    trb
+    contestants = tribes.map(&:members).flatten
+    Tribe.new(name: name, members: contestants)
   end
 
   def individual_immunity_challenge

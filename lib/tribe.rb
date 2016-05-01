@@ -3,7 +3,7 @@ class Tribe
 
   def initialize( options={} )
     @name = options[:name]
-    @members = options[:members]
+    @members = options[:members] || Array.new
 
     puts @name
   end
