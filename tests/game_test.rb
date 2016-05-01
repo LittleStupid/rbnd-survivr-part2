@@ -69,5 +69,5 @@ class TestGame < Minitest::Test
   def test_individual_immunity_challenge
     assert_instance_of Contestant, @borneo.individual_immunity_challenge
   end
-  
+
 end
