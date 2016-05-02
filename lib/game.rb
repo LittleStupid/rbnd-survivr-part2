@@ -1,14 +1,9 @@
 class Game
   attr_accessor :tribes, :person_one, :person_two
 
-  def initialize( tribe_one, tribe_two )
+  def initialize( *tribes )
     @tribes = Array.new
-
-    @tribe_one = tribe_one
-    @tribe_two = tribe_two
-
-    @tribes << tribe_one
-    @tribes << tribe_two
+    tribes.each{ |tribe| @tribes << tribe }
   end
 
   def add_tribe( tribe )
@@ -16,8 +11,7 @@ class Game
   end
 
   def immunity_challenge
-    #@tribes.tribal_council( @tribes.first)
-    @tribes.sample
+      @tribes.sample
   end
 
   def clear_tribes

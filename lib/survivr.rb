@@ -20,23 +20,35 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
-  @borneo.immunity_challenge * 8
+  8.times{ @borneo.immunity_challenge }
 end
 
 def phase_two
-  @merge_tribe = @borneo.merge( "combined").immunity_challenge * 3
+  member = []
+  3.times{ member << @borneo.individual_immunity_challenge }
+
+  @merge_tribe = @borneo.merge("Cello")
+
+  member.length
 end
 
 def phase_three
   @jury = Jury.new
+
+  7.times{ @jury.add_member( @borneo.individual_immunity_challenge ) }
+
+
+  finalists = Hash.new
   @merge_tribe.members.each do |member|
-    @jury.add_member( member )
+    finalists[ member ] = 0
   end
 
   finalists = @merge_tribe.members
   votes_result = @jury.cast_votes(finalists)
   @jury.report_votes( votes_result )
   @jury.announce_winner( votes_result )
+
+  @jury.members.length
 end
 
 

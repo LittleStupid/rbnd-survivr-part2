@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Jury
 
   attr_accessor :members
@@ -12,19 +14,19 @@ class Jury
 
   def report_votes( final_votes )
     final_votes.each do |k,v|
-      puts k.to_s + " " + v.to_s
+      puts k.to_s.green + " " + v.to_s.blue
     end
   end
 
   def announce_winner( final_votes )
-    ( final_votes.max_by{ |k,v| v } )[0]
+    puts "winner : " + ( final_votes.max_by{ |k,v| v } )[0].red
   end
 
   def cast_votes( final_votes )
-    puts @members
+    puts @members.yellow
 
     votes = Hash.new
-    
+
     votes[ final_votes.first.name ] = 0
     votes[ final_votes.last.name ] = 0
 
