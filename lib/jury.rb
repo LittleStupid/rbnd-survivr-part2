@@ -23,7 +23,7 @@ class Jury
   end
 
   def cast_votes( final_votes )
-    puts @members.yellow
+    puts @members
 
     votes = Hash.new
 
