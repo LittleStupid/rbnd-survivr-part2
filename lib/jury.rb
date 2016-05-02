@@ -24,9 +24,17 @@ class Jury
     puts @members
 
     votes = Hash.new
-    #is it a good idea to assign fixed votes number to each one ?
-    votes[ final_votes.first.name ] = 4
-    votes[ final_votes.last.name ] = 3
+    
+    votes[ final_votes.first.name ] = 0
+    votes[ final_votes.last.name ] = 0
+
+    @members.each do |member|
+      if( 0 == rand(2) )
+        votes[ final_votes.first.name ] += 1
+      else
+        votes[ final_votes.last.name ] += 1
+      end
+    end
 
     votes
   end

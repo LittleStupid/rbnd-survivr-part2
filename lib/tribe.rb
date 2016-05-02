@@ -13,19 +13,9 @@ class Tribe
   end
 
   def tribal_council( options={} )
-    #puts options[:immune]
-    #puts "***************s"
-    #puts @members
-    #puts "^^^^^^^^^^^^^^^^"
-    if( @members.include?( options[:immune] ) )
-      @members.pop
-    end
-    #@members.delete( options[:immune] )
-
-
-    #puts "ssssssssss"
-    #puts @members
-    #puts "sfasgsgs"
+    members_without_immue = @members.select{ |member| member != options[:immune] }
+    deleted_member = members_without_immue.sample
+    @members.delete( deleted_member )
   end
 
 end

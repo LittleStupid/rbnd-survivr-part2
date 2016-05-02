@@ -16,7 +16,8 @@ class Game
   end
 
   def immunity_challenge
-    @tribes.tribal_council( @tribes.first)
+    #@tribes.tribal_council( @tribes.first)
+    @tribes.sample
   end
 
   def clear_tribes
@@ -29,7 +30,7 @@ class Game
   end
 
   def individual_immunity_challenge
-    Contestant.new( "immune" )
+    @tribes.last.members.sample
   end
 
 end

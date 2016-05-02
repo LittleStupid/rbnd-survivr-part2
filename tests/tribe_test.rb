@@ -47,7 +47,6 @@ class TestTribe < Minitest::Test
         immune_array.pop
       end
     end
-    immune_array.clear
     refute_includes immune_array, immune
   end
 
