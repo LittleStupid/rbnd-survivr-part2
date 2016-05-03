@@ -1,4 +1,4 @@
-require 'colorize'
+require 'colorizr'
 
 class Jury
 
