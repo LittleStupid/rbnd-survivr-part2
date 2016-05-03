@@ -1,5 +1,3 @@
-require 'colorizr'
-
 class Jury
 
   attr_accessor :members
@@ -19,7 +17,7 @@ class Jury
   end
 
   def announce_winner( final_votes )
-    puts "winner : " + ( final_votes.max_by{ |k,v| v } )[0]
+    ( final_votes.max_by{ |k,v| v } )[0]
   end
 
   def cast_votes( final_votes )
@@ -27,15 +25,13 @@ class Jury
 
     votes = Hash.new
 
-    votes[ final_votes.first.name ] = 0
-    votes[ final_votes.last.name ] = 0
+    final_votes.each do |vote|
+      votes[ vote.name ] = 0
+    end
 
     @members.each do |member|
-      if( 0 == rand(2) )
-        votes[ final_votes.first.name ] += 1
-      else
-        votes[ final_votes.last.name ] += 1
-      end
+      name = final_votes.sample
+      votes[name.to_s] += 1
     end
 
     votes
