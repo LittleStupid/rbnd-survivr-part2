@@ -14,12 +14,12 @@ class Jury
 
   def report_votes( final_votes )
     final_votes.each do |k,v|
-      puts k.to_s.green + " " + v.to_s.blue
+      puts k.to_s + " " + v.to_s
     end
   end
 
   def announce_winner( final_votes )
-    puts "winner : " + ( final_votes.max_by{ |k,v| v } )[0].red
+    puts "winner : " + ( final_votes.max_by{ |k,v| v } )[0]
   end
 
   def cast_votes( final_votes )
