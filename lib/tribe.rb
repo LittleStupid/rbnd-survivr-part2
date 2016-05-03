@@ -1,3 +1,5 @@
+require 'colorizr'
+
 class Tribe
   attr_accessor :name, :members
 
@@ -5,7 +7,7 @@ class Tribe
     @name = options[:name]
     @members = options[:members] || Array.new
 
-    puts @name
+    puts @name.red
   end
 
   def to_s
