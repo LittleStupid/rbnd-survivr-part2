@@ -21,24 +21,24 @@ require_relative "jury"
 #This is where you will write your code for the three phases
 def phase_one
   8.times do
-    @borneo.individual_immunity_challenge()
+    tribe = @borneo.immunity_challenge()
+    tribe.tribal_council( immune: tribe.members.sample )
   end
 end
 
 def phase_two
-  @borneo.merge!("merged")
-  3.times{ @borneo.individual_immunity_challenge() }
+  @borneo.merge("merged")
+  3.times{ @merge_tribe .tribal_council( immue: @merge_tribe.members.sample ) }
 end
 
 def phase_three
-  @jury = Jury.new
-  7.times{ @jury.add_member( @borneo.individual_immunity_challenge ) }
+  7.times{ @jury.add_member( @merge_tribe .tribal_council( immue: @merge_tribe.members.sample ) ) }
 end
 
 
 # If all the tests pass, the code below should run the entire simulation!!
 #=========================================================
-# phase_one #8 eliminations
+ phase_one #8 eliminations
  @merge_tribe = @borneo.merge("Cello") # After 8 eliminations, merge the two tribes together
  phase_two #3 more eliminations
  @jury = Jury.new
