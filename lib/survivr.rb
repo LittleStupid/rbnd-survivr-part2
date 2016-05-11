@@ -21,47 +21,29 @@ require_relative "jury"
 #This is where you will write your code for the three phases
 def phase_one
   8.times do
-    ( @borneo.immunity_challenge )
+    @borneo.individual_immunity_challenge()
   end
 end
 
 def phase_two
-  member = []
-  3.times{ member << @borneo.individual_immunity_challenge }
-
-  @merge_tribe = @borneo.merge("Cello")
-
-  member.length
+  @borneo.merge!("merged")
+  3.times{ @borneo.individual_immunity_challenge() }
 end
 
 def phase_three
   @jury = Jury.new
-
   7.times{ @jury.add_member( @borneo.individual_immunity_challenge ) }
-
-
-  finalists = Hash.new
-  @merge_tribe.members.each do |member|
-    finalists[ member ] = 0
-  end
-
-  finalists = @merge_tribe.members
-  votes_result = @jury.cast_votes(finalists)
-  @jury.report_votes( votes_result )
-  @jury.announce_winner( votes_result )
-
-  @jury.members.length
 end
 
 
 # If all the tests pass, the code below should run the entire simulation!!
 #=========================================================
 # phase_one #8 eliminations
-# @merge_tribe = @borneo.merge("Cello") # After 8 eliminations, merge the two tribes together
-# phase_two #3 more eliminations
-# @jury = Jury.new
-# phase_three #7 elminiations become jury members
-# finalists = @merge_tribe.members #set finalists
-# vote_results = @jury.cast_votes(finalists) #Jury members report votes
-# @jury.report_votes(vote_results) #Jury announces their votes
-# @jury.announce_winner(vote_results) #Jury announces final winner
+ @merge_tribe = @borneo.merge("Cello") # After 8 eliminations, merge the two tribes together
+ phase_two #3 more eliminations
+ @jury = Jury.new
+ phase_three #7 elminiations become jury members
+ finalists = @merge_tribe.members #set finalists
+ vote_results = @jury.cast_votes(finalists) #Jury members report votes
+ @jury.report_votes(vote_results) #Jury announces their votes
+ @jury.announce_winner(vote_results) #Jury announces final winner

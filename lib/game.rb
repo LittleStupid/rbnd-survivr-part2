@@ -23,8 +23,17 @@ class Game
     Tribe.new(name: name, members: contestants)
   end
 
+  def merge!( name )
+    @tribes.clear
+    @tribes << merge( name )
+  end
+
   def individual_immunity_challenge
-    @tribes.last.members.sample
+    #@tribes.last.members.sample
+
+    trb = @tribes.sample
+    deleted_member = trb.members.sample
+    trb.tribal_council( immue: trb.members.sample )
   end
 
 end

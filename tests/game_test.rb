@@ -30,9 +30,9 @@ class TestGame < Minitest::Test
   end
 
   #
-  #def test_immunity_challenge
-  #  assert_instance_of Tribe, @borneo.immunity_challenge
-  #end
+  def test_immunity_challenge
+    assert_instance_of Tribe, @borneo.immunity_challenge
+  end
 
   #
   def test_clear_tribes
