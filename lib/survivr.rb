@@ -22,7 +22,7 @@ require_relative "jury"
 def phase_one
   8.times do
     tribe = @borneo.immunity_challenge()
-    tribe.tribal_council( immune: tribe.members.sample )
+    tribe.tribal_council()
   end
 end
 
