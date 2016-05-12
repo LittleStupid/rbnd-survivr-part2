@@ -29,7 +29,6 @@ class Game
 
   def individual_immunity_challenge
     #@tribes.last.members.sample
-    deleted_member = @merge_tribe.members.sample
     #puts ""
     #puts "BEFORE"
     #puts @merge_tribe.members.length

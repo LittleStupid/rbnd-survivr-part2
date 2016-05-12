@@ -27,12 +27,11 @@ def phase_one
 end
 
 def phase_two
-  @borneo.merge("merged")
-  3.times{ @merge_tribe .tribal_council( immue: @merge_tribe.members.sample ) }
+  3.times{ @borneo.individual_immunity_challenge }
 end
 
 def phase_three
-  7.times{ @jury.add_member( @merge_tribe .tribal_council( immue: @merge_tribe.members.sample ) ) }
+  7.times{ @jury.add_member( @borneo.individual_immunity_challenge ) }
 end
 
 
@@ -44,6 +43,10 @@ end
  @jury = Jury.new
  phase_three #7 elminiations become jury members
  finalists = @merge_tribe.members #set finalists
+
+# puts "******"
+# puts finalists.length
+
  vote_results = @jury.cast_votes(finalists) #Jury members report votes
  @jury.report_votes(vote_results) #Jury announces their votes
  @jury.announce_winner(vote_results) #Jury announces final winner
